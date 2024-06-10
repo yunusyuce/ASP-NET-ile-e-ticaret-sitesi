@@ -1,0 +1,62 @@
+﻿@model IEnumerable<YeniProje.Models.Slider>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Context)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderImage)
+               
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Header1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Header2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Context)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderImage)
+                 <img src="/Slider/@item.SliderImage" height="100px" width="100px" /> 
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SliderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SliderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SliderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

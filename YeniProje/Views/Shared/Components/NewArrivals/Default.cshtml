@@ -1,0 +1,36 @@
+﻿@model List<YeniProje.Models.Products>
+
+<div class="row margin-bottom-40">
+    <!-- BEGIN SALE PRODUCT -->
+    <div class="col-md-12 sale-product">
+        <h2>New Arrivals</h2>
+        <div class="owl-carousel owl-carousel5">
+            @foreach(var item in Model)
+            {
+                
+           
+            <div>
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                        <img src="~/Urunler/@item.ProductPicture" class="img-responsive" alt="@item.ProductName">
+                        <div>
+                           <a href="~/Urunler/@item.ProductPicture" class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">Detay</a>
+                        </div>
+                    </div>
+                    <h3><a href="~/Home/Detay/@item.ProductId">@item.ProductName</a></h3>
+                    <div class="pi-price">@item.ProductPrice</div>
+                    <a href="javascript:;" class="btn btn-default add2cart">Sepet</a>
+                    <div class="sticker sticker-sale"></div>
+                </div>
+            </div>
+            }
+          
+         
+            
+           
+          
+        </div>
+    </div>
+    <!-- END SALE PRODUCT -->
+</div>
